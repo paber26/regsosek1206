@@ -35,6 +35,8 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+// $routes->group('', ['filter' => 'login'], function ($routes) {
+
 $routes->get('/', 'Home::index');
 $routes->get('/regsosek2022', 'Regsosek2022::index');
 $routes->get('/regsosek2022/absensi', 'Regsosek2022::absensi');
@@ -45,6 +47,7 @@ $routes->get('/regsosek2022/petugas', 'Regsosek2022::petugas');
 
 $routes->get('/mitra', 'Mitra::index');
 $routes->get('/mitra/tambah', 'Mitra::tambah');
+// });
 
 /*
  * --------------------------------------------------------------------
