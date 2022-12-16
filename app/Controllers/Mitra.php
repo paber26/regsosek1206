@@ -9,55 +9,48 @@ class Mitra extends BaseController
 {
     protected $db;
     protected $users;
+    protected $userinfo;
 
     public function __construct()
     {
         $this->db = db_connect();
         $this->users = $this->db->table('users');
+        $this->userinfo = $this->db->table('userinfo');
     }
 
     public function index()
     {
-        $data['title'] = 'Regsosek 2022';
-        return view('templates/header', $data)
+        // $data['title'] = 'Regsosek 2022';
+        // $data['mitras'] = $this->userinfo->get()->getResultArray();
+        $data['mitras'] = $this->userinfo->select('userinfo.*, users.created_at')
+            ->join('users', 'userinfo.email = users.email', 'left')->get()->getResultArray();
+        // dd($data);
+
+        return view('templates/header')
             . view('templates/sidebar')
             . view('templates/topbar')
-            . view('mitra/index');
+            . view('mitra/index', $data);
     }
 
     public function tambah()
     {
-        // $db = db_connect();
-        // $builder = $db->table('users');
-
         if ($this->request->getPost() != null) {
-            // dd($this->request->getPost());
-            // $sql = 'SELECT * FROM migrations';
-            // dd($db->query($sql)->getResultArray());
-            // dd($this->db->table('userinfo')->get());
-            // dd(DB::table('users')->get());
 
-            // dd($this->users->get()->getResult());
-
-            // preparePassword()
-            // dd(\Myth\Auth\Password::hash($this->request->getPost('password')));
-            // dd(password_hash($this->request->getPost('password')));
-
-            $data = [
+            $this->users->insert([
                 'email' => $this->request->getPost('email'),
                 'username' => $this->request->getPost('email'),
                 'password_hash' => \Myth\Auth\Password::hash($this->request->getPost('password')),
-            ];
+            ]);
 
-            // bin2hex('oke');
-            // dd($data);       
-
-            $this->users->insert($data);
-
-            dd($this->users->get()->getResult());
+            $this->userinfo->insert([
+                'email' => $this->request->getPost('email'),
+                'nama' => $this->request->getPost('nama'),
+                'alamat' => $this->request->getPost('alamat'),
+                'tlahir' => $this->request->getPost('tlahir'),
+                'wa' => $this->request->getPost('wa')
+            ]);
         } else {
-            $data['title']  = 'Regsosek 2022';
-            return view('templates/header', $data)
+            return view('templates/header')
                 . view('templates/sidebar')
                 . view('templates/topbar')
                 . view('mitra/tambah');

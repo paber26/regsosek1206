@@ -14,7 +14,7 @@
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Nama<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Cth. Bernaldo Napitupulu" required="required" value="Bernaldo Napitupulu" />
+                                    <input class="form-control" data-validate-length-range="6" data-validate-words="2" name="nama" placeholder="Cth. Bernaldo Napitupulu" required="required" value="Bernaldo Napitupulu" />
                                 </div>
                             </div>
 
@@ -47,7 +47,7 @@
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">WA<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" type="tel" class='tel' name="phone" required='required' data-validate-length-range="8,20" value="082360054904" />
+                                    <input class="form-control" type="tel" class='tel' name="wa" required data-validate-length-range="8,20" value="082360054904" />
                                 </div>
                             </div>
                             <div class="field item form-group">

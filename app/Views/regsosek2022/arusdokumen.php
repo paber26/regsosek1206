@@ -18,26 +18,27 @@
                                         <thead>
                                             <tr>
                                                 <th>Kode Wilayah</th>
-                                                <th>Keterangan</th>
                                                 <th>Diterima IPDS</th>
-                                                <th>Diterima Petugas</th>
-                                                <th>Petugas</th>
-                                                <th>Diterima Sosial</th>
+                                                <th>Diterima Mitra</th>
+                                                <th>Mitra</th>
+                                                <th>Kembali Ke TU</th>
+                                                <th>Keterangan</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
 
-
                                         <tbody>
-                                            <tr>
-                                                <td>1206030004000400</td>
-                                                <td>Percepatan</td>
-                                                <td>2022-11-29</td>
-                                                <td>Gemmy Rahmat Simbolon</td>
-                                                <td>2022-11-30</td>
-                                                <td>-</td>
-                                                <td><a href="/regsosek2022/arusdokumen/1206030004000400" class="btn btn-secondary btn-sm">Edit</a></td>
-                                            </tr>
+                                            <?php foreach ($arusdokumen as $arus) : ?>
+                                                <tr>
+                                                    <td><?= $arus['k_wil']; ?></td>
+                                                    <td><?= $arus['diterima_ipds']; ?></td>
+                                                    <td><?= $arus['diterima_mitra']; ?></td>
+                                                    <td><?= $arus['mitra']; ?></td>
+                                                    <td><?= $arus['kembali_tu']; ?></td>
+                                                    <td><?= $arus['ket']; ?></td>
+                                                    <td><a href="<?php echo '/regsosek2022/arusdokumen/' . $arus['k_wil'] ?>" class="btn btn-secondary btn-sm">Edit</a></td>
+                                                </tr>
+                                            <?php endforeach ?>
                                         </tbody>
                                     </table>
                                 </div>

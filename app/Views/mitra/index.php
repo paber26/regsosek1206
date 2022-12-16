@@ -7,6 +7,8 @@
             <div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
                     <div class="x_title">
+
+
                         <h2>Absensi Regsosek 2022</h2>
                         <div class="clearfix"></div>
                     </div>
@@ -18,7 +20,8 @@
                                         <thead>
                                             <tr>
                                                 <th>Nama</th>
-                                                <th>Tanggal</th>
+                                                <th>Email</th>
+                                                <th>Bergabung</th>
                                                 <th>No WA</th>
                                                 <th>Rekening</th>
                                                 <th>No Rekening</th>
@@ -27,13 +30,16 @@
 
 
                                         <tbody>
-                                            <tr>
-                                                <td>Bernaldo Napitupulu</td>
-                                                <td>2022/09/14</td>
-                                                <td>082360054904</td>
-                                                <td>BRI</td>
-                                                <td>5252502349234</td>
-                                            </tr>
+                                            <?php foreach ($mitras as $mitra) : ?>
+                                                <tr>
+                                                    <td><?= $mitra['nama']; ?></td>
+                                                    <td><?= $mitra['email']; ?></td>
+                                                    <td><?= $mitra['created_at']; ?></td>
+                                                    <td><?= $mitra['wa']; ?></td>
+                                                    <td>BRI</td>
+                                                    <td>5252502349234</td>
+                                                </tr>
+                                            <?php endforeach ?>
                                         </tbody>
                                     </table>
                                 </div>

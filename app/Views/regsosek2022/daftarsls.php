@@ -30,16 +30,18 @@
 
 
                                         <tbody>
-                                            <tr>
-                                                <td>1206030012000300</td>
-                                                <td>030</td>
-                                                <td>BALIGE</td>
-                                                <td>012</td>
-                                                <td>BONAN DOLOK III</td>
-                                                <td>0003</td>
-                                                <td>00</td>
-                                                <td>DUSUN SIHOBUK</td>
-                                            </tr>
+                                            <?php foreach ($slss as $sls) : ?>
+                                                <tr>
+                                                    <td><?= $sls['k_wil']; ?></td>
+                                                    <td><?= $sls['k_kec']; ?></td>
+                                                    <td><?= $sls['n_kec']; ?></td>
+                                                    <td><?= $sls['k_desa']; ?></td>
+                                                    <td><?= $sls['n_desa']; ?></td>
+                                                    <td><?= $sls['k_sls']; ?></td>
+                                                    <td><?= $sls['k_subsls']; ?></td>
+                                                    <td><?= $sls['n_sls']; ?></td>
+                                                </tr>
+                                            <?php endforeach ?>
                                         </tbody>
                                     </table>
                                 </div>
