@@ -41,7 +41,8 @@ $routes->get('/', 'Home::index');
 $routes->get('/regsosek2022', 'Regsosek2022::index');
 $routes->get('/regsosek2022/absensi', 'Regsosek2022::absensi');
 $routes->get('/regsosek2022/arusdokumen', 'Regsosek2022::arusdokumen');
-$routes->get('/regsosek2022/arusdokumen/(:num)', 'Regsosek2022::arusdokumenid/$1');
+$routes->get('/regsosek2022/arusdokumen/(:num)', 'Regsosek2022::arusdokumenedit/$1');
+$routes->post('/regsosek2022/arusdokumen/(:num)', 'Regsosek2022::arusdokumenedit/$1');
 $routes->get('/regsosek2022/daftarsls', 'Regsosek2022::daftarsls');
 $routes->get('/regsosek2022/petugas', 'Regsosek2022::petugas');
 

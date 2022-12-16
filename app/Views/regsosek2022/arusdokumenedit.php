@@ -9,25 +9,51 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <form class="" action="" method="post" novalidate>
+                        <form action="<?php '/regsosek2022/arusdokumenedit/' . $arusdokumen['k_wil']; ?>" method="post" novalidate>
                             <span class="section">Informasi Dokumen</span>
                             <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Kode Wilayah</label>
+                                <label class="col-form-label col-md-3 col-sm-3 label-align">Kode Wilayah</label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" name="name" placeholder="1231" />
+                                    <label class="form-control"><?= $arusdokumen['k_wil']; ?></label>
                                 </div>
                             </div>
 
                             <div class="field item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align">Kecamatan</label>
+                                <div class="col-md-6 col-sm-6">
+                                    <label class="form-control"><?php echo '[' . $arusdokumen['k_kec'] . '] ' . $arusdokumen['n_kec'] ?></label>
+                                </div>
+                            </div>
+
+                            <div class="field item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align">Desa</label>
+                                <div class="col-md-6 col-sm-6">
+                                    <label class="form-control"><?php echo '[' . $arusdokumen['k_desa'] . '] ' . $arusdokumen['n_desa'] ?></label>
+                                </div>
+                            </div>
+
+                            <div class="field item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align">SLS - Sub SLS</label>
+                                <div class="col-md-6 col-sm-6">
+                                    <label class="form-control"><?php echo '[' . $arusdokumen['k_sls'] . ' - ' . $arusdokumen['k_subsls'] . '] ' . $arusdokumen['n_sls'] ?></label>
+                                </div>
+                            </div>
+
+                            <span class="section"></span>
+                            <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Keterangan</label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" class='optional' name="occupation" data-validate-length-range="5,15" type="text" />
+                                    <input class="form-control" type="text" name="ket" value="<?= $arusdokumen['ket']; ?>" />
                                 </div>
                             </div>
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Diterima IPDS</label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="date-picker form-control" placeholder="dd-mm-yyyy" type="text" required="required" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                                    <?php if ($arusdokumen['diterima_ipds'] == null) : ?>
+                                        <input class="date-picker form-control" name="diterima_ipds" placeholder="dd-mm-yyyy" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                                    <?php else : ?>
+                                        <input class="date-picker form-control" name="diterima_ipds" value="<?= $arusdokumen['diterima_ipds']; ?>" type="text" required="required" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                                    <?php endif ?>
                                     <script>
                                         function timeFunctionLong(input) {
                                             setTimeout(function() {
@@ -37,10 +63,16 @@
                                     </script>
                                 </div>
                             </div>
+
                             <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Diterima Petugas</label>
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Diterima Mitra</label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="date-picker form-control" placeholder="dd-mm-yyyy" type="text" required="required" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                                    <?php if ($arusdokumen['diterima_mitra'] == null) : ?>
+                                        <input class="date-picker form-control" name="diterima_mitra" placeholder="dd-mm-yyyy" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                                    <?php else : ?>
+                                        <input class="date-picker form-control" name="diterima_mitra" value="<?= $arusdokumen['diterima_mitra']; ?>" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                                    <?php endif ?>
+                                    <!-- <input class="date-picker form-control" placeholder="dd-mm-yyyy" type="text" required="required" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)"> -->
                                     <script>
                                         function timeFunctionLong(input) {
                                             setTimeout(function() {
@@ -50,16 +82,22 @@
                                     </script>
                                 </div>
                             </div>
+
                             <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Petugas</label>
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Mitra</label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" name="name" placeholder="Gemmy Rahmat Simbolon" />
+                                    <input class="form-control" name="mitra" value="<?= $arusdokumen['mitra']; ?>" />
                                 </div>
                             </div>
+
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Diterima Sosial</label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="date-picker form-control" placeholder="dd-mm-yyyy" type="text" required="required" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                                    <?php if ($arusdokumen['kembali_tu'] == null) : ?>
+                                        <input class="date-picker form-control" name="kembali_tu" placeholder="dd-mm-yyyy" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                                    <?php else : ?>
+                                        <input class="date-picker form-control" name="kembali_tu" value="<?= $arusdokumen['kembali_tu']; ?>" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                                    <?php endif ?>
                                     <script>
                                         function timeFunctionLong(input) {
                                             setTimeout(function() {
@@ -74,7 +112,6 @@
                                 <div class="form-group">
                                     <div class="col-md-6 offset-md-3">
                                         <button type='submit' class="btn btn-primary">Submit</button>
-                                        <button type='reset' class="btn btn-success">Reset</button>
                                     </div>
                                 </div>
                             </div>

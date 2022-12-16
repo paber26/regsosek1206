@@ -51,13 +51,41 @@ class Regsosek2022 extends BaseController
             . view('regsosek2022/arusdokumen', $data);
     }
 
-    public function arusdokumenid($kodewilayah)
+    public function arusdokumenedit($kodewilayah)
     {
-        // return $kodewilayah;
-        return view('templates/header')
-            . view('templates/sidebar')
-            . view('templates/topbar')
-            . view('regsosek2022/arusdokumenid');
+        if ($this->request->getPost() == null) {
+            $data['arusdokumen'] = $this->sls->select('sls.*, arusdk.diterima_ipds, arusdk.diterima_mitra, arusdk.mitra, arusdk.kembali_tu, arusdk.ket')
+                ->join('regsosek2022_arusdokumen as arusdk', 'sls.k_wil = arusdk.k_wil', 'left')
+                ->where('sls.k_wil', $kodewilayah)
+                ->get()->getRowArray();
+
+            // dd($data);
+
+            return view('templates/header')
+                . view('templates/sidebar')
+                . view('templates/topbar')
+                . view('regsosek2022/arusdokumenedit', $data);
+        } else {
+            if ($this->arusdokumen->where('k_wil', $kodewilayah)->get()->getResult() == null) {
+                $this->arusdokumen->insert([
+                    'k_wil' => $kodewilayah,
+                    'ket' => strtoupper($this->request->getPost('ket')),
+                    'diterima_ipds' => $this->request->getPost('diterima_ipds'),
+                    'diterima_mitra' => $this->request->getPost('diterima_mitra'),
+                    'mitra' => strtoupper($this->request->getPost('mitra')),
+                    'kembali_tu' => $this->request->getPost('kembali_tu'),
+                ]);
+            } else {
+                $this->arusdokumen->set([
+                    'ket' => strtoupper($this->request->getPost('ket')),
+                    'diterima_mitra' => $this->request->getPost('diterima_mitra'),
+                    'mitra' => strtoupper($this->request->getPost('mitra')),
+                    'kembali_tu' => $this->request->getPost('kembali_tu'),
+                ])->where('k_wil', $kodewilayah)->update();
+            }
+
+            return redirect()->to('/regsosek2022/arusdokumen');
+        }
     }
 
     public function petugas()
