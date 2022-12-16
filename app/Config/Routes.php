@@ -45,6 +45,7 @@ $routes->get('/regsosek2022/arusdokumen/(:num)', 'Regsosek2022::arusdokumenedit/
 $routes->post('/regsosek2022/arusdokumen/(:num)', 'Regsosek2022::arusdokumenedit/$1');
 $routes->get('/regsosek2022/daftarsls', 'Regsosek2022::daftarsls');
 $routes->get('/regsosek2022/petugas', 'Regsosek2022::petugas');
+$routes->get('/regsosek2022/petugastambah', 'Regsosek2022::petugastambah');
 
 $routes->get('/mitra', 'Mitra::index');
 $routes->get('/mitra/tambah', 'Mitra::tambah');

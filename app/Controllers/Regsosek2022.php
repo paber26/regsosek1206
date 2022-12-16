@@ -96,6 +96,14 @@ class Regsosek2022 extends BaseController
             . view('regsosek2022/petugas');
     }
 
+    public function petugastambah()
+    {
+        return view('templates/header')
+            . view('templates/sidebar')
+            . view('templates/topbar')
+            . view('regsosek2022/petugastambah');
+    }
+
     public function daftarsls()
     {
         $data['slss'] = $this->sls->get()->getResultArray();

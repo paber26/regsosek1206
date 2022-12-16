@@ -7,7 +7,7 @@
             <div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Absensi Regsosek 2022</h2>
+                        <h2>Petugas Entri Regsosek 2022</h2>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
@@ -21,6 +21,7 @@
                                                 <th>Email</th>
                                                 <th>Alamat</th>
                                                 <th>No WA</th>
+                                                <th>Rekening</th>
                                             </tr>
                                         </thead>
 
@@ -31,6 +32,7 @@
                                                 <td>bernaldo.n70@gmail.com</td>
                                                 <td>Sirandos</td>
                                                 <td>082360054904</td>
+                                                <td>BRI 234234</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -39,7 +41,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="/mitra/tambah" class="btn btn-round btn-primary btn-sm float-right">Tambah Mitra</a>
+                <a href="/regsosek2022/petugastambah" class="btn btn-round btn-primary btn-sm float-right">Tambah Petugas</a>
             </div>
 
         </div>
