@@ -47,6 +47,7 @@ $routes->get('/regsosek2022/petugas', 'Regsosek2022::petugas');
 
 $routes->get('/mitra', 'Mitra::index');
 $routes->get('/mitra/tambah', 'Mitra::tambah');
+$routes->post('/mitra/tambah', 'Mitra::tambah');
 // });
 
 /*

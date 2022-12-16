@@ -9,26 +9,26 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <form class="" action="" method="post" novalidate>
+                        <form action="/mitra/tambah" method="post">
                             <span class="section">Informasi Mitra</span>
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Nama<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Cth. Bernaldo Napitupulu" required="required" />
+                                    <input class="form-control" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Cth. Bernaldo Napitupulu" required="required" value="Bernaldo Napitupulu" />
                                 </div>
                             </div>
 
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Alamat<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" class='optional' name="occupation" data-validate-length-range="5,15" type="text" />
+                                    <input class="form-control" class='optional' name="alamat" data-validate-length-range="5,15" type="text" value="Sirandos" />
                                 </div>
                             </div>
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Tanggal Lahir<span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="date-picker form-control" placeholder="dd-mm-yyyy" type="text" required="required" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                                    <input class="date-picker form-control" placeholder="dd-mm-yyyy" type="text" name="tlahir" required onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
                                     <script>
                                         function timeFunctionLong(input) {
                                             setTimeout(function() {
@@ -41,19 +41,19 @@
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Email<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" name="email" class='email' required="required" type="email" />
+                                    <input class="form-control" name="email" class='email' required="required" type="email" value="bernaldo.n70@gmail.com" />
                                 </div>
                             </div>
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">WA<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" type="tel" class='tel' name="phone" required='required' data-validate-length-range="8,20" />
+                                    <input class="form-control" type="tel" class='tel' name="phone" required='required' data-validate-length-range="8,20" value="082360054904" />
                                 </div>
                             </div>
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Password<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" type="password" id="password1" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}" title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character" required />
+                                    <input class="form-control" type="password" id="password1" name="password" required />
 
                                     <span style="position: absolute;right:15px;top:7px;" onclick="hideshow()">
                                         <i id="slash" class="fa fa-eye-slash"></i>
