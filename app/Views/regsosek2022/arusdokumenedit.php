@@ -41,13 +41,13 @@
 
                             <span class="section"></span>
                             <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Keterangan</label>
+                                <label class="col-form-label col-md-3 col-sm-3 label-align">Keterangan</label>
                                 <div class="col-md-6 col-sm-6">
                                     <input class="form-control" type="text" name="ket" value="<?= $arusdokumen['ket']; ?>" />
                                 </div>
                             </div>
                             <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Diterima IPDS</label>
+                                <label class="col-form-label col-md-3 col-sm-3 label-align">Diterima IPDS</label>
                                 <div class="col-md-6 col-sm-6">
                                     <?php if ($arusdokumen['diterima_ipds'] == null) : ?>
                                         <input class="date-picker form-control" name="diterima_ipds" placeholder="dd-mm-yyyy" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
@@ -65,7 +65,7 @@
                             </div>
 
                             <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Diterima Mitra</label>
+                                <label class="col-form-label col-md-3 col-sm-3 label-align">Diterima Mitra</label>
                                 <div class="col-md-6 col-sm-6">
                                     <?php if ($arusdokumen['diterima_mitra'] == null) : ?>
                                         <input class="date-picker form-control" name="diterima_mitra" placeholder="dd-mm-yyyy" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
@@ -84,14 +84,19 @@
                             </div>
 
                             <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Mitra</label>
-                                <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" name="mitra" value="<?= $arusdokumen['mitra']; ?>" />
+                                <label class="col-form-label col-md-3 col-sm-3 label-align">Mitra</label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <select class="select2_single form-control" name="mitra" tabindex="-1">
+                                        <option></option>
+                                        <?php foreach ($mitras as $mitra) : ?>
+                                            <option <?php echo $arusdokumen['mitra'] == $mitra['nama'] ? 'selected' : '' ?>><?= $mitra['nama']; ?></option>
+                                        <?php endforeach ?>
+                                    </select>
                                 </div>
                             </div>
 
                             <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Diterima Sosial</label>
+                                <label class="col-form-label col-md-3 col-sm-3 label-align">Diterima Sosial</label>
                                 <div class="col-md-6 col-sm-6">
                                     <?php if ($arusdokumen['kembali_tu'] == null) : ?>
                                         <input class="date-picker form-control" name="kembali_tu" placeholder="dd-mm-yyyy" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">

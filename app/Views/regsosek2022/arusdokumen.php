@@ -26,16 +26,15 @@
                                                 <th></th>
                                             </tr>
                                         </thead>
-
                                         <tbody>
                                             <?php foreach ($arusdokumen as $arus) : ?>
                                                 <tr>
                                                     <td><?= $arus['k_wil']; ?></td>
-                                                    <td><?= $arus['diterima_ipds']; ?></td>
-                                                    <td><?= $arus['diterima_mitra']; ?></td>
-                                                    <td><?= $arus['mitra']; ?></td>
-                                                    <td><?= $arus['kembali_tu']; ?></td>
-                                                    <td><?= $arus['ket']; ?></td>
+                                                    <td class="text-center"><?php echo $arus['diterima_ipds'] != null ? $arus['diterima_ipds'] : '-'; ?></td>
+                                                    <td class="text-center"><?php echo $arus['diterima_mitra'] != null ? $arus['diterima_mitra'] : '-'; ?></td>
+                                                    <td class="text-center"><?php echo $arus['mitra'] != null ? $arus['mitra'] : '-'; ?></td>
+                                                    <td class="text-center"><?php echo $arus['kembali_tu'] != null ? $arus['kembali_tu'] : '-'; ?></td>
+                                                    <td class="text-center"><?php echo $arus['ket'] != null ? $arus['ket'] : '-'; ?></td>
                                                     <td><a href="<?php echo '/regsosek2022/arusdokumen/' . $arus['k_wil'] ?>" class="btn btn-secondary btn-sm">Edit</a></td>
                                                 </tr>
                                             <?php endforeach ?>

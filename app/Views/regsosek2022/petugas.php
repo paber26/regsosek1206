@@ -27,13 +27,15 @@
 
 
                                         <tbody>
-                                            <tr>
-                                                <td>Bernaldo Napitupulu</td>
-                                                <td>bernaldo.n70@gmail.com</td>
-                                                <td>Sirandos</td>
-                                                <td>082360054904</td>
-                                                <td>BRI 234234</td>
-                                            </tr>
+                                            <?php foreach ($petugas as $p) : ?>
+                                                <tr>
+                                                    <td><?= $p['nama']; ?></td>
+                                                    <td><?= $p['email']; ?></td>
+                                                    <td><?= $p['alamat']; ?></td>
+                                                    <td><?= $p['wa']; ?></td>
+                                                    <td><?php echo $p['rekening'] . '-' . $p['nomor_rekening'] ?></td>
+                                                </tr>
+                                            <?php endforeach ?>
                                         </tbody>
                                     </table>
                                 </div>

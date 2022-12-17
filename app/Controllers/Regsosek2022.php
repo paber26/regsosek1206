@@ -59,6 +59,9 @@ class Regsosek2022 extends BaseController
                 ->where('sls.k_wil', $kodewilayah)
                 ->get()->getRowArray();
 
+            $data['mitras'] = $this->userinfo->select('email, nama')
+                ->where('regsosek2022', 1)->get()->getResultArray();
+
             // dd($data);
 
             return view('templates/header')
@@ -84,16 +87,19 @@ class Regsosek2022 extends BaseController
                 ])->where('k_wil', $kodewilayah)->update();
             }
 
-            return redirect()->to('/regsosek2022/arusdokumen');
+            return redirect()->to(base_url('/regsosek2022/arusdokumen'));
         }
     }
 
     public function petugas()
     {
+        $data['petugas'] = $this->userinfo->where('regsosek2022', 1)->get()->getResultArray();
+        // dd($data);
+
         return view('templates/header')
             . view('templates/sidebar')
             . view('templates/topbar')
-            . view('regsosek2022/petugas');
+            . view('regsosek2022/petugas', $data);
     }
 
     public function petugastambah()
