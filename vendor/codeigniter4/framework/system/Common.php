@@ -36,7 +36,7 @@ use Laminas\Escaper\Escaper;
 
 // Services Convenience Functions
 
-if (! function_exists('app_timezone')) {
+if (!function_exists('app_timezone')) {
     /**
      * Returns the timezone the application has been set to display
      * dates in. This might be different than the timezone set
@@ -52,7 +52,7 @@ if (! function_exists('app_timezone')) {
     }
 }
 
-if (! function_exists('cache')) {
+if (!function_exists('cache')) {
     /**
      * A convenience method that provides access to the Cache
      * object. If no parameter is provided, will return the object,
@@ -78,7 +78,7 @@ if (! function_exists('cache')) {
     }
 }
 
-if (! function_exists('clean_path')) {
+if (!function_exists('clean_path')) {
     /**
      * A convenience method to clean paths for
      * a nicer looking output. Useful for exception
@@ -111,7 +111,7 @@ if (! function_exists('clean_path')) {
     }
 }
 
-if (! function_exists('command')) {
+if (!function_exists('command')) {
     /**
      * Runs a single command.
      * Input expected in a single string as would
@@ -192,7 +192,7 @@ if (! function_exists('command')) {
     }
 }
 
-if (! function_exists('config')) {
+if (!function_exists('config')) {
     /**
      * More simple way of getting config instances from Factories
      *
@@ -204,7 +204,7 @@ if (! function_exists('config')) {
     }
 }
 
-if (! function_exists('cookie')) {
+if (!function_exists('cookie')) {
     /**
      * Simpler way to create a new Cookie instance.
      *
@@ -220,7 +220,7 @@ if (! function_exists('cookie')) {
     }
 }
 
-if (! function_exists('cookies')) {
+if (!function_exists('cookies')) {
     /**
      * Fetches the global `CookieStore` instance held by `Response`.
      *
@@ -237,7 +237,7 @@ if (! function_exists('cookies')) {
     }
 }
 
-if (! function_exists('csrf_token')) {
+if (!function_exists('csrf_token')) {
     /**
      * Returns the CSRF token name.
      * Can be used in Views when building hidden inputs manually,
@@ -249,7 +249,7 @@ if (! function_exists('csrf_token')) {
     }
 }
 
-if (! function_exists('csrf_header')) {
+if (!function_exists('csrf_header')) {
     /**
      * Returns the CSRF header name.
      * Can be used in Views by adding it to the meta tag
@@ -261,7 +261,7 @@ if (! function_exists('csrf_header')) {
     }
 }
 
-if (! function_exists('csrf_hash')) {
+if (!function_exists('csrf_hash')) {
     /**
      * Returns the current hash value for the CSRF protection.
      * Can be used in Views when building hidden inputs manually,
@@ -273,27 +273,27 @@ if (! function_exists('csrf_hash')) {
     }
 }
 
-if (! function_exists('csrf_field')) {
+if (!function_exists('csrf_field')) {
     /**
      * Generates a hidden input field for use within manually generated forms.
      */
     function csrf_field(?string $id = null): string
     {
-        return '<input type="hidden"' . (! empty($id) ? ' id="' . esc($id, 'attr') . '"' : '') . ' name="' . csrf_token() . '" value="' . csrf_hash() . '" />';
+        return '<input type="hidden"' . (!empty($id) ? ' id="' . esc($id, 'attr') . '"' : '') . ' name="' . csrf_token() . '" value="' . csrf_hash() . '" />';
     }
 }
 
-if (! function_exists('csrf_meta')) {
+if (!function_exists('csrf_meta')) {
     /**
      * Generates a meta tag for use within javascript calls.
      */
     function csrf_meta(?string $id = null): string
     {
-        return '<meta' . (! empty($id) ? ' id="' . esc($id, 'attr') . '"' : '') . ' name="' . csrf_header() . '" content="' . csrf_hash() . '" />';
+        return '<meta' . (!empty($id) ? ' id="' . esc($id, 'attr') . '"' : '') . ' name="' . csrf_header() . '" content="' . csrf_hash() . '" />';
     }
 }
 
-if (! function_exists('csp_style_nonce')) {
+if (!function_exists('csp_style_nonce')) {
     /**
      * Generates a nonce attribute for style tag.
      */
@@ -301,7 +301,7 @@ if (! function_exists('csp_style_nonce')) {
     {
         $csp = Services::csp();
 
-        if (! $csp->enabled()) {
+        if (!$csp->enabled()) {
             return '';
         }
 
@@ -309,7 +309,7 @@ if (! function_exists('csp_style_nonce')) {
     }
 }
 
-if (! function_exists('csp_script_nonce')) {
+if (!function_exists('csp_script_nonce')) {
     /**
      * Generates a nonce attribute for script tag.
      */
@@ -317,7 +317,7 @@ if (! function_exists('csp_script_nonce')) {
     {
         $csp = Services::csp();
 
-        if (! $csp->enabled()) {
+        if (!$csp->enabled()) {
             return '';
         }
 
@@ -325,7 +325,7 @@ if (! function_exists('csp_script_nonce')) {
     }
 }
 
-if (! function_exists('db_connect')) {
+if (!function_exists('db_connect')) {
     /**
      * Grabs a database connection and returns it to the user.
      *
@@ -350,7 +350,7 @@ if (! function_exists('db_connect')) {
     }
 }
 
-if (! function_exists('dd')) {
+if (!function_exists('dd')) {
     /**
      * Prints a Kint debug report and exits.
      *
@@ -367,7 +367,7 @@ if (! function_exists('dd')) {
     }
 }
 
-if (! function_exists('env')) {
+if (!function_exists('env')) {
     /**
      * Allows user to retrieve values from the environment
      * variables that have been set. Especially useful for
@@ -406,7 +406,7 @@ if (! function_exists('env')) {
     }
 }
 
-if (! function_exists('esc')) {
+if (!function_exists('esc')) {
     /**
      * Performs simple auto-escaping of data for security reasons.
      * Might consider making this more complex at a later date.
@@ -443,14 +443,14 @@ if (! function_exists('esc')) {
                 return $data;
             }
 
-            if (! in_array($context, ['html', 'js', 'css', 'url', 'attr'], true)) {
+            if (!in_array($context, ['html', 'js', 'css', 'url', 'attr'], true)) {
                 throw new InvalidArgumentException('Invalid escape context provided.');
             }
 
             $method = $context === 'attr' ? 'escapeHtmlAttr' : 'escape' . ucfirst($context);
 
             static $escaper;
-            if (! $escaper) {
+            if (!$escaper) {
                 $escaper = new Escaper($encoding);
             }
 
@@ -465,7 +465,7 @@ if (! function_exists('esc')) {
     }
 }
 
-if (! function_exists('force_https')) {
+if (!function_exists('force_https')) {
     /**
      * Used to force a page to be accessed in via HTTPS.
      * Uses a standard redirect, plus will set the HSTS header
@@ -490,7 +490,7 @@ if (! function_exists('force_https')) {
             $response = Services::response(null, true);
         }
 
-        if (! $request instanceof IncomingRequest) {
+        if (!$request instanceof IncomingRequest) {
             return;
         }
 
@@ -531,7 +531,7 @@ if (! function_exists('force_https')) {
     }
 }
 
-if (! function_exists('function_usable')) {
+if (!function_exists('function_usable')) {
     /**
      * Function usable
      *
@@ -564,18 +564,18 @@ if (! function_exists('function_usable')) {
         static $_suhosin_func_blacklist;
 
         if (function_exists($functionName)) {
-            if (! isset($_suhosin_func_blacklist)) {
+            if (!isset($_suhosin_func_blacklist)) {
                 $_suhosin_func_blacklist = extension_loaded('suhosin') ? explode(',', trim(ini_get('suhosin.executor.func.blacklist'))) : [];
             }
 
-            return ! in_array($functionName, $_suhosin_func_blacklist, true);
+            return !in_array($functionName, $_suhosin_func_blacklist, true);
         }
 
         return false;
     }
 }
 
-if (! function_exists('helper')) {
+if (!function_exists('helper')) {
     /**
      * Loads a helper file into memory. Supports namespaced helpers,
      * both in and out of the 'helpers' directory of a namespaced directory.
@@ -595,7 +595,7 @@ if (! function_exists('helper')) {
 
         $loader = Services::locator();
 
-        if (! is_array($filenames)) {
+        if (!is_array($filenames)) {
             $filenames = [$filenames];
         }
 
@@ -645,7 +645,7 @@ if (! function_exists('helper')) {
                 }
 
                 // App-level helpers should override all others
-                if (! empty($appHelper)) {
+                if (!empty($appHelper)) {
                     $includes[] = $appHelper;
                     $loaded[]   = $filename;
                 }
@@ -654,7 +654,7 @@ if (! function_exists('helper')) {
                 $includes = [...$includes, ...$localIncludes];
 
                 // And the system default one should be added in last.
-                if (! empty($systemHelper)) {
+                if (!empty($systemHelper)) {
                     $includes[] = $systemHelper;
                     $loaded[]   = $filename;
                 }
@@ -668,7 +668,7 @@ if (! function_exists('helper')) {
     }
 }
 
-if (! function_exists('is_cli')) {
+if (!function_exists('is_cli')) {
     /**
      * Check if PHP was invoked from the command line.
      *
@@ -682,11 +682,11 @@ if (! function_exists('is_cli')) {
 
         // PHP_SAPI could be 'cgi-fcgi', 'fpm-fcgi'.
         // See https://github.com/codeigniter4/CodeIgniter4/pull/5393
-        return ! isset($_SERVER['REMOTE_ADDR']) && ! isset($_SERVER['REQUEST_METHOD']);
+        return !isset($_SERVER['REMOTE_ADDR']) && !isset($_SERVER['REQUEST_METHOD']);
     }
 }
 
-if (! function_exists('is_really_writable')) {
+if (!function_exists('is_really_writable')) {
     /**
      * Tests for file writability
      *
@@ -723,7 +723,7 @@ if (! function_exists('is_really_writable')) {
             return true;
         }
 
-        if (! is_file($file) || ($fp = @fopen($file, 'ab')) === false) {
+        if (!is_file($file) || ($fp = @fopen($file, 'ab')) === false) {
             return false;
         }
 
@@ -733,7 +733,7 @@ if (! function_exists('is_really_writable')) {
     }
 }
 
-if (! function_exists('lang')) {
+if (!function_exists('lang')) {
     /**
      * A convenience method to translate a string or array of them and format
      * the result with the intl extension's MessageFormatter.
@@ -762,7 +762,7 @@ if (! function_exists('lang')) {
     }
 }
 
-if (! function_exists('log_message')) {
+if (!function_exists('log_message')) {
     /**
      * A convenience/compatibility method for logging events through
      * the Log system.
@@ -794,7 +794,7 @@ if (! function_exists('log_message')) {
     }
 }
 
-if (! function_exists('model')) {
+if (!function_exists('model')) {
     /**
      * More simple way of getting model instances from Factories
      *
@@ -810,7 +810,7 @@ if (! function_exists('model')) {
     }
 }
 
-if (! function_exists('old')) {
+if (!function_exists('old')) {
     /**
      * Provides access to "old input" that was set in the session
      * during a redirect()->withInput().
@@ -842,7 +842,7 @@ if (! function_exists('old')) {
     }
 }
 
-if (! function_exists('redirect')) {
+if (!function_exists('redirect')) {
     /**
      * Convenience method that works with the current global $request and
      * $router instances to redirect using named/reverse-routed routes
@@ -856,7 +856,7 @@ if (! function_exists('redirect')) {
     {
         $response = Services::redirectresponse(null, true);
 
-        if (! empty($route)) {
+        if (!empty($route)) {
             return $response->route($route);
         }
 
@@ -864,7 +864,7 @@ if (! function_exists('redirect')) {
     }
 }
 
-if (! function_exists('remove_invisible_characters')) {
+if (!function_exists('remove_invisible_characters')) {
     /**
      * Remove Invisible Characters
      *
@@ -892,7 +892,7 @@ if (! function_exists('remove_invisible_characters')) {
     }
 }
 
-if (! function_exists('route_to')) {
+if (!function_exists('route_to')) {
     /**
      * Given a controller/method string and any params,
      * will attempt to build the relative URL to the
@@ -912,7 +912,7 @@ if (! function_exists('route_to')) {
     }
 }
 
-if (! function_exists('session')) {
+if (!function_exists('session')) {
     /**
      * A convenience method for accessing the session instance,
      * or an item that has been set in the session.
@@ -939,7 +939,7 @@ if (! function_exists('session')) {
     }
 }
 
-if (! function_exists('service')) {
+if (!function_exists('service')) {
     /**
      * Allows cleaner access to the Services Config file.
      * Always returns a SHARED instance of the class, so
@@ -960,7 +960,7 @@ if (! function_exists('service')) {
     }
 }
 
-if (! function_exists('single_service')) {
+if (!function_exists('single_service')) {
     /**
      * Always returns a new instance of the class.
      *
@@ -999,7 +999,7 @@ if (! function_exists('single_service')) {
     }
 }
 
-if (! function_exists('slash_item')) {
+if (!function_exists('slash_item')) {
     // Unlike CI3, this function is placed here because
     // it's not a config, or part of a config.
     /**
@@ -1014,13 +1014,13 @@ if (! function_exists('slash_item')) {
     {
         $config = config(App::class);
 
-        if (! property_exists($config, $item)) {
+        if (!property_exists($config, $item)) {
             return null;
         }
 
         $configItem = $config->{$item};
 
-        if (! is_scalar($configItem)) {
+        if (!is_scalar($configItem)) {
             throw new RuntimeException(sprintf(
                 'Cannot convert "%s::$%s" of type "%s" to type "string".',
                 App::class,
@@ -1039,7 +1039,7 @@ if (! function_exists('slash_item')) {
     }
 }
 
-if (! function_exists('stringify_attributes')) {
+if (!function_exists('stringify_attributes')) {
     /**
      * Stringify attributes for use in HTML tags.
      *
@@ -1070,7 +1070,7 @@ if (! function_exists('stringify_attributes')) {
     }
 }
 
-if (! function_exists('timer')) {
+if (!function_exists('timer')) {
     /**
      * A convenience method for working with the timer.
      * If no parameter is passed, it will return the timer instance,
@@ -1094,7 +1094,7 @@ if (! function_exists('timer')) {
     }
 }
 
-if (! function_exists('trace')) {
+if (!function_exists('trace')) {
     /**
      * Provides a backtrace to the current execution point, from Kint.
      */
@@ -1105,7 +1105,7 @@ if (! function_exists('trace')) {
     }
 }
 
-if (! function_exists('view')) {
+if (!function_exists('view')) {
     /**
      * Grabs the current RendererInterface-compatible class
      * and tells it to render the specified view. Simply provides
@@ -1135,7 +1135,7 @@ if (! function_exists('view')) {
     }
 }
 
-if (! function_exists('view_cell')) {
+if (!function_exists('view_cell')) {
     /**
      * View cells are used within views to insert HTML chunks that are managed
      * by other classes.
@@ -1157,7 +1157,7 @@ if (! function_exists('view_cell')) {
  *
  * @see https://github.com/laravel/framework/blob/8.x/src/Illuminate/Support/helpers.php
  */
-if (! function_exists('class_basename')) {
+if (!function_exists('class_basename')) {
     /**
      * Get the class "basename" of the given object / class.
      *
@@ -1175,7 +1175,7 @@ if (! function_exists('class_basename')) {
     }
 }
 
-if (! function_exists('class_uses_recursive')) {
+if (!function_exists('class_uses_recursive')) {
     /**
      * Returns all traits used by a class, its parent classes and trait of their traits.
      *
@@ -1201,7 +1201,7 @@ if (! function_exists('class_uses_recursive')) {
     }
 }
 
-if (! function_exists('trait_uses_recursive')) {
+if (!function_exists('trait_uses_recursive')) {
     /**
      * Returns all traits used by a trait and its traits.
      *

@@ -253,3 +253,36 @@ LEFT JOIN `regsosek2022_arusdokumen` as `arusdk` ON `sls`.`k_wil` = `arusdk`.`k_
  8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-16 21:38:00 --> Invalid file: regsosek2022/dokumenerror.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('regsosek2022/dokumenerror.php')
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('regsosek2022/dokumenerror', [], true)
+ 3 APPPATH\Controllers\Regsosek2022.php(99): view('regsosek2022/dokumenerror')
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Regsosek2022->dokumenerror()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-16 21:55:24 --> require(vendor/autoload.php): Failed to open stream: No such file or directory
+in APPPATH\Controllers\Regsosek2022.php on line 5.
+ 1 APPPATH\Controllers\Regsosek2022.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'require(vendor/autoload.php): Failed to open stream: No such file or directory', 'APPPATH\\Controllers\\Regsosek2022.php', 5)
+ 2 APPPATH\Controllers\Regsosek2022.php(5): require()
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(282): include_once('APPPATH\\Controllers\\Regsosek2022.php')
+ 4 SYSTEMPATH\Autoloader\Autoloader.php(259): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Controllers\\Regsosek2022.php')
+ 5 SYSTEMPATH\Autoloader\Autoloader.php(237): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Regsosek2022')
+ 6 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Regsosek2022')
+ 7 SYSTEMPATH\CodeIgniter.php(877): class_exists('\\App\\Controllers\\Regsosek2022', true)
+ 8 SYSTEMPATH\CodeIgniter.php(469): CodeIgniter\CodeIgniter->startController()
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-16 22:36:30 --> File "template.xlsx" does not exist.
+in VENDORPATH\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\File.php on line 149.
+ 1 VENDORPATH\phpoffice\phpspreadsheet\src\PhpSpreadsheet\IOFactory.php(129): PhpOffice\PhpSpreadsheet\Shared\File::assertFile('template.xlsx')
+ 2 VENDORPATH\phpoffice\phpspreadsheet\src\PhpSpreadsheet\IOFactory.php(100): PhpOffice\PhpSpreadsheet\IOFactory::createReaderForFile('template.xlsx', null)
+ 3 APPPATH\Controllers\Regsosek2022.php(110): PhpOffice\PhpSpreadsheet\IOFactory::load('template.xlsx')
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Regsosek2022->dokumenerror()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')

@@ -21,6 +21,8 @@
     <!-- bootstrap-daterangepicker -->
     <link href="<?= base_url('vendors/iCheck/skins/flat/green.css'); ?>" rel="stylesheet">
     <link href="<?= base_url('vendors/bootstrap-daterangepicker/daterangepicker.css'); ?>" rel="stylesheet">
+    <!-- Dropzone.js -->
+    <link href="<?= base_url('vendors/dropzone/dist/min/dropzone.min.css'); ?>" rel="stylesheet">
 
     <link href="<?= base_url('vendors/datatables.net-bs/css/dataTables.bootstrap.min.css'); ?>" rel="stylesheet">
     <link href="<?= base_url('vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css'); ?>" rel="stylesheet">

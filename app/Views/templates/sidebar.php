@@ -30,6 +30,7 @@
                             <li><a href="/regsosek2022">Dashboard</a></li>
                             <li><a href="/regsosek2022/absensi">Absensi</a></li>
                             <li><a href="/regsosek2022/arusdokumen">Arus Dokumen</a></li>
+                            <li><a href="/regsosek2022/dokumenerror">Dokumen Error</a></li>
                             <li><a href="/regsosek2022/daftarsls">Daftar SLS</a></li>
                             <li><a href="/regsosek2022/petugas">Petugas</a></li>
                         </ul>

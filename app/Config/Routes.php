@@ -43,6 +43,12 @@ $routes->get('/regsosek2022/absensi', 'Regsosek2022::absensi');
 $routes->get('/regsosek2022/arusdokumen', 'Regsosek2022::arusdokumen');
 $routes->get('/regsosek2022/arusdokumen/(:num)', 'Regsosek2022::arusdokumenedit/$1');
 $routes->post('/regsosek2022/arusdokumen/(:num)', 'Regsosek2022::arusdokumenedit/$1');
+
+$routes->get('/regsosek2022/dokumenerror', 'Regsosek2022::dokumenerror');
+$routes->get('/regsosek2022/dokumenerror/(:num)', 'Regsosek2022::dokumenerrorlihat/$1');
+$routes->get('/regsosek2022/dokumenerror/(:num)/(:num)', 'Regsosek2022::dokumenerrorlihat/$1/$2');
+$routes->post('/regsosek2022/dokumenerror/(:num)/(:num)', 'Regsosek2022::dokumenerrorlihat/$1/$2');
+
 $routes->get('/regsosek2022/daftarsls', 'Regsosek2022::daftarsls');
 $routes->get('/regsosek2022/petugas', 'Regsosek2022::petugas');
 $routes->get('/regsosek2022/petugastambah', 'Regsosek2022::petugastambah');
