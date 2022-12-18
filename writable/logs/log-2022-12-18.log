@@ -1,0 +1,10 @@
+CRITICAL - 2022-12-18 07:47:40 --> Invalid file: regsosek2022/dokumenerroredi.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('regsosek2022/dokumenerroredi.php')
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('regsosek2022/dokumenerroredi', [], true)
+ 3 APPPATH\Controllers\Regsosek2022.php(192): view('regsosek2022/dokumenerroredi', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Regsosek2022->dokumenerrorlihat('1206030006000100', '795')
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
