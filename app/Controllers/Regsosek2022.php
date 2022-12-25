@@ -22,6 +22,7 @@ class Regsosek2022 extends BaseController
     protected $arusdokumen;
     protected $dokumenerror;
     protected $absensi;
+    protected $entrian;
 
 
     public function __construct()
@@ -37,6 +38,7 @@ class Regsosek2022 extends BaseController
         $this->arusdokumen = $this->db->table('regsosek2022_arusdokumen as ad');
         $this->dokumenerror = $this->db->table('regsosek2022_dokumenerror as de');
         $this->absensi = $this->db->table('regsosek2022_absensi as ab');
+        $this->entrian = $this->db->table('regsosek2022_entrian as e');
     }
 
     public function index()
@@ -87,6 +89,11 @@ class Regsosek2022 extends BaseController
         $data['diterima_ipds_persen'] = number_format((float)$data['diterima_ipds'] / $data['total_sls'] * 100, '2');
         $data['diterima_mitra_persen'] = number_format((float)$data['diterima_mitra'] / $data['total_sls'] * 100, '2');
         $data['kembali_tu_persen'] = number_format((float)$data['kembali_tu'] / $data['total_sls'] * 100, '2');
+
+        $data['entrian'] = $this->entrian->select('e.*, u.nama')
+            ->join('userinfo as u', 'e.email = u.email', 'left')
+            ->orderBy('e.total')->get()->getResultArray();
+
 
         return view('templates/header')
             . view('templates/sidebar', $this->user)
