@@ -13,7 +13,7 @@
             </div>
             <div class="profile_info">
                 <span>Halo</span>
-                <h2>Bernaldo Napitupulu asdfasf</h2>
+                <h2><?= $nama; ?></h2>
             </div>
         </div>
         <!-- /menu profile quick info -->
