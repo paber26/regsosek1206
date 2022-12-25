@@ -12,12 +12,17 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class Regsosek2022 extends BaseController
 {
+    protected $email;
+    protected $user;
+
     protected $db;
     protected $users;
     protected $userinfo;
     protected $sls;
     protected $arusdokumen;
     protected $dokumenerror;
+    protected $absensi;
+    protected $entrian;
 
 
     public function __construct()
@@ -25,25 +30,86 @@ class Regsosek2022 extends BaseController
         $this->db = db_connect();
         $this->users = $this->db->table('users');
         $this->userinfo = $this->db->table('userinfo');
+
+        $this->email = service('authentication')->user()->email;
+        $this->user = $this->userinfo->where('email', $this->email)->get()->getRowArray();
+
         $this->sls = $this->db->table('sls');
         $this->arusdokumen = $this->db->table('regsosek2022_arusdokumen as ad');
         $this->dokumenerror = $this->db->table('regsosek2022_dokumenerror as de');
+        $this->absensi = $this->db->table('regsosek2022_absensi as ab');
+        $this->entrian = $this->db->table('regsosek2022_entrian as e');
     }
 
     public function index()
     {
+        $kec = $this->sls->select('k_kec, n_kec')->distinct('k_kec')->get()->getResultArray();
+
+        $data['diterima_ipds'] = 0;
+        $data['diterima_mitra'] = 0;
+        $data['kembali_tu'] = 0;
+
+        $data['progress'] = [];
+        foreach ($kec as $k) {
+            $total = $this->sls->where('k_kec', $k['k_kec'])->countAllResults();
+            $tmp = $this->arusdokumen->like('k_wil', '1206' . $k['k_kec'])->get()->getResultArray();
+
+            $diterima_ipds = 0;
+            $diterima_mitra = 0;
+            $kembali_tu = 0;
+            foreach ($tmp as $t) {
+                if ($t['diterima_ipds'] != '0000-00-00') {
+                    $diterima_ipds++;
+                }
+                if ($t['diterima_mitra'] != '0000-00-00') {
+                    $diterima_mitra++;
+                }
+                if ($t['kembali_tu'] != '0000-00-00') {
+                    $kembali_tu++;
+                }
+            }
+
+            $data['diterima_ipds'] += $diterima_ipds;
+            $data['diterima_mitra'] += $diterima_mitra;
+            $data['kembali_tu'] += $kembali_tu;
+
+
+            array_push($data['progress'], [
+                'k_kec' => $k['k_kec'],
+                'n_kec' => $k['n_kec'],
+                'total' => $total,
+                'diterima_ipds' => $diterima_ipds,
+                'persentase' => number_format((float)$diterima_ipds / $total * 100, '2'),
+                'diterima_mitra' => $diterima_mitra,
+                'kembali_tu' => $kembali_tu,
+            ]);
+        }
+
+        $data['total_sls'] = $this->sls->countAllResults();
+        $data['diterima_ipds_persen'] = number_format((float)$data['diterima_ipds'] / $data['total_sls'] * 100, '2');
+        $data['diterima_mitra_persen'] = number_format((float)$data['diterima_mitra'] / $data['total_sls'] * 100, '2');
+        $data['kembali_tu_persen'] = number_format((float)$data['kembali_tu'] / $data['total_sls'] * 100, '2');
+
+        $data['entrian'] = $this->entrian->select('e.*, u.nama')
+            ->join('userinfo as u', 'e.email = u.email', 'left')
+            ->orderBy('e.total')->get()->getResultArray();
+
+
         return view('templates/header')
-            . view('templates/sidebar')
+            . view('templates/sidebar', $this->user)
             . view('templates/topbar')
-            . view('regsosek2022/index');
+            . view('regsosek2022/index', $data);
     }
 
     public function absensi()
     {
+        $data['kehadiran'] = $this->absensi->select('ab.*, userinfo.nama')
+            ->join('userinfo', 'ab.email = userinfo.email', 'left')->get()->getResultArray();
+
         return view('templates/header')
-            . view('templates/sidebar')
+            . view('templates/sidebar', $this->user)
             . view('templates/topbar')
-            . view('regsosek2022/absensi');
+            . view('regsosek2022/absensi', $data);
     }
 
     public function arusdokumen()
@@ -54,7 +120,7 @@ class Regsosek2022 extends BaseController
 
         // dd($data['arusdokumen']);
         return view('templates/header')
-            . view('templates/sidebar')
+            . view('templates/sidebar', $this->user)
             . view('templates/topbar')
             . view('regsosek2022/arusdokumen', $data);
     }
@@ -73,7 +139,7 @@ class Regsosek2022 extends BaseController
             // dd($data);
 
             return view('templates/header')
-                . view('templates/sidebar')
+                . view('templates/sidebar', $this->user)
                 . view('templates/topbar')
                 . view('regsosek2022/arusdokumenedit', $data);
         } else {
@@ -149,7 +215,7 @@ class Regsosek2022 extends BaseController
         // dd($dat);
 
         return view('templates/header')
-            . view('templates/sidebar')
+            . view('templates/sidebar', $this->user)
             . view('templates/topbar')
             . view('regsosek2022/dokumenerror', $data);
     }
@@ -169,7 +235,7 @@ class Regsosek2022 extends BaseController
             // dd($dat);
 
             return view('templates/header')
-                . view('templates/sidebar')
+                . view('templates/sidebar', $this->user)
                 . view('templates/topbar')
                 . view('regsosek2022/dokumenerrorlihat', $data);
         } else {
@@ -192,7 +258,7 @@ class Regsosek2022 extends BaseController
                 // dd($data);
 
                 return view('templates/header')
-                    . view('templates/sidebar')
+                    . view('templates/sidebar', $this->user)
                     . view('templates/topbar')
                     . view('regsosek2022/dokumenerroredit', $data);
             }
@@ -205,7 +271,7 @@ class Regsosek2022 extends BaseController
         // dd($data);
 
         return view('templates/header')
-            . view('templates/sidebar')
+            . view('templates/sidebar', $this->user)
             . view('templates/topbar')
             . view('regsosek2022/petugas', $data);
     }
@@ -213,7 +279,7 @@ class Regsosek2022 extends BaseController
     public function petugastambah()
     {
         return view('templates/header')
-            . view('templates/sidebar')
+            . view('templates/sidebar', $this->user)
             . view('templates/topbar')
             . view('regsosek2022/petugastambah');
     }
@@ -224,7 +290,7 @@ class Regsosek2022 extends BaseController
         // dd($data['slss']);
 
         return view('templates/header')
-            . view('templates/sidebar')
+            . view('templates/sidebar', $this->user)
             . view('templates/topbar')
             . view('regsosek2022/daftarsls', $data);
     }

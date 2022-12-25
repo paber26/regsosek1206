@@ -18,20 +18,20 @@
                                         <thead>
                                             <tr>
                                                 <th>Nama</th>
-                                                <th>Hari</th>
-                                                <th>Masuk</th>
-                                                <th>Pulang</th>
+                                                <td class="text-center">Tanggal</th>
+                                                <td class="text-center">Masuk</th>
+                                                <td class="text-center">Pulang</th>
                                             </tr>
                                         </thead>
-
-
                                         <tbody>
-                                            <tr>
-                                                <td>Bernaldo Napitupulu</td>
-                                                <td>2022/12/14</td>
-                                                <td>08:30</td>
-                                                <td>18:00</td>
-                                            </tr>
+                                            <?php foreach ($kehadiran as $k) : ?>
+                                                <tr>
+                                                    <td><?= $k['nama']; ?></td>
+                                                    <td class="text-center"><?= $k['tanggal']; ?></td>
+                                                    <td class="text-center"><?= $k['datang']; ?></td>
+                                                    <td class="text-center"><?= $k['pulang']; ?></td>
+                                                </tr>
+                                            <?php endforeach ?>
                                         </tbody>
                                     </table>
                                 </div>

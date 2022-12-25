@@ -7,6 +7,9 @@ use Myth\Auth\Password\hash;
 
 class Mitra extends BaseController
 {
+    protected $email;
+    protected $user;
+
     protected $db;
     protected $users;
     protected $userinfo;
@@ -16,6 +19,9 @@ class Mitra extends BaseController
         $this->db = db_connect();
         $this->users = $this->db->table('users');
         $this->userinfo = $this->db->table('userinfo');
+
+        $this->email = service('authentication')->user()->email;
+        $this->user = $this->userinfo->where('email', $this->email)->get()->getRowArray();
     }
 
     public function index()
@@ -27,7 +33,7 @@ class Mitra extends BaseController
         // dd($data);
 
         return view('templates/header')
-            . view('templates/sidebar')
+            . view('templates/sidebar', $this->user)
             . view('templates/topbar')
             . view('mitra/index', $data);
     }
@@ -51,7 +57,7 @@ class Mitra extends BaseController
             ]);
         } else {
             return view('templates/header')
-                . view('templates/sidebar')
+                . view('templates/sidebar', $this->user)
                 . view('templates/topbar')
                 . view('mitra/tambah');
         }
