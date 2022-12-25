@@ -37,7 +37,7 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 // $routes->group('', ['filter' => 'login'], function ($routes) {
 
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Regsosek2022::index');
 $routes->get('/regsosek2022', 'Regsosek2022::index');
 $routes->get('/regsosek2022/absensi', 'Regsosek2022::absensi');
 $routes->get('/regsosek2022/arusdokumen', 'Regsosek2022::arusdokumen');
