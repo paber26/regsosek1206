@@ -39,6 +39,10 @@ $routes->set404Override();
 
 $routes->get('/', 'Regsosek2022::index');
 $routes->get('/regsosek2022', 'Regsosek2022::index');
+
+$routes->get('/regsosek2022/updateentrian', 'Regsosek2022::updateentrian');
+$routes->post('/regsosek2022/updateentrian', 'Regsosek2022::updateentrian');
+
 $routes->get('/regsosek2022/absensi', 'Regsosek2022::absensi');
 $routes->get('/regsosek2022/arusdokumen', 'Regsosek2022::arusdokumen');
 $routes->get('/regsosek2022/arusdokumen/(:num)', 'Regsosek2022::arusdokumenedit/$1');

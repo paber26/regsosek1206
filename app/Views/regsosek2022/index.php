@@ -8,6 +8,9 @@
                 <div class="x_panel">
                     <div class="x_title">
                         <h2>Total Entri <?= date('Y-m-d') ?></h2>
+                        <div class="nav navbar-right panel_toolbox">
+                            <a href="/regsosek2022/updateentrian" class="btn-sm btn-primary btn-lg active" role="button" aria-pressed="true">Update</a>
+                        </div>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">

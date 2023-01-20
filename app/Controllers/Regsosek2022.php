@@ -101,6 +101,45 @@ class Regsosek2022 extends BaseController
             . view('regsosek2022/index', $data);
     }
 
+    public function updateentrian()
+    {
+        if (isset($_FILES["file"]["name"])) {
+            $file_excel = $this->request->getFile('file');
+            $render = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+            $spreadsheet = $render->load($file_excel);
+
+            $data = $spreadsheet->getActiveSheet()->toArray();
+            foreach ($data as $i => $row) {
+                if ($i == 0) {
+                    continue;
+                }
+                if ($this->entrian->where('email', $data[$i][0])->get()->getRowArray() == null) {
+                    continue;
+                } else {
+                    $current = $this->entrian->where('email', $data[$i][0])->get()->getRowArray();
+                    $dokclean   = $data[$i][3] - $current['lastentri'];
+                    $dokwarning = $data[$i][4];
+                    $dokerror   = $data[$i][5];
+                    $doktotal   = $dokclean + $dokwarning + $dokerror;
+
+                    $this->entrian->set([
+                        'dok_clean' => $dokclean,
+                        'dok_warning' => $dokwarning,
+                        'dok_error' => $dokerror,
+                        'total' => $doktotal
+                    ])->where('email', $data[$i][0])->update();
+                };
+            }
+
+            return redirect()->to(base_url('/regsosek2022'));
+        } else {
+            return view('templates/header')
+                . view('templates/sidebar', $this->user)
+                . view('templates/topbar')
+                . view('regsosek2022/updateentrian');
+        }
+    }
+
     public function absensi()
     {
         $data['kehadiran'] = $this->absensi->select('ab.*, userinfo.nama')
