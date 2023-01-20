@@ -61,7 +61,7 @@ class CLIRequest extends Request
      */
     public function __construct(App $config)
     {
-        if (!is_cli()) {
+        if (! is_cli()) {
             throw new RuntimeException(static::class . ' needs to run from the command line.'); // @codeCoverageIgnore
         }
 
@@ -303,5 +303,16 @@ class CLIRequest extends Request
     public function getLocale(): string
     {
         return Locale::getDefault();
+    }
+
+    /**
+     * Checks this request type.
+     *
+     * @param string $type HTTP verb or 'json' or 'ajax'
+     * @phpstan-param string|'get'|'post'|'put'|'delete'|'head'|'patch'|'options'|'json'|'ajax' $type
+     */
+    public function is(string $type): bool
+    {
+        return false;
     }
 }
