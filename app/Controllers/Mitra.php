@@ -28,7 +28,7 @@ class Mitra extends BaseController
     {
         // $data['title'] = 'Regsosek 2022';
         // $data['mitras'] = $this->userinfo->get()->getResultArray();
-        $data['mitras'] = $this->userinfo->select('userinfo.*, users.created_at')
+        $data['mitras'] = $this->userinfo->select('userinfo.*, users.created_at, users.id')
             ->join('users', 'userinfo.email = users.email', 'left')->get()->getResultArray();
         // dd($data);
 
@@ -62,4 +62,13 @@ class Mitra extends BaseController
                 . view('mitra/tambah');
         }
     }
+
+    public function edit($id)
+    {
+        echo $id;
+    }
+    // public function edit($email)
+    // {
+    //     echo $email;
+    // }
 }

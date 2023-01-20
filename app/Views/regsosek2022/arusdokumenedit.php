@@ -9,7 +9,7 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <form action="<?php '/regsosek2022/arusdokumenedit/' . $arusdokumen['k_wil']; ?>" method="post" novalidate>
+                        <form action="" method="post" novalidate>
                             <span class="section">Informasi Dokumen</span>
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align">Kode Wilayah</label>

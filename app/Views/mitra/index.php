@@ -25,6 +25,7 @@
                                                 <th>No WA</th>
                                                 <th>Rekening</th>
                                                 <th>No Rekening</th>
+                                                <th></th>
                                             </tr>
                                         </thead>
 
@@ -38,6 +39,7 @@
                                                     <td><?= $mitra['wa']; ?></td>
                                                     <td>BRI</td>
                                                     <td>5252502349234</td>
+                                                    <td><a href="<?php echo '/mitra/edit/' . $mitra['id'] ?>" class="btn btn-secondary btn-sm">Edit</a></td>
                                                 </tr>
                                             <?php endforeach ?>
                                         </tbody>

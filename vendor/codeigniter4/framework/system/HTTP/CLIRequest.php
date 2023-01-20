@@ -61,7 +61,7 @@ class CLIRequest extends Request
      */
     public function __construct(App $config)
     {
-        if (! is_cli()) {
+        if (!is_cli()) {
             throw new RuntimeException(static::class . ' needs to run from the command line.'); // @codeCoverageIgnore
         }
 

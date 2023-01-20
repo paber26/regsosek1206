@@ -155,6 +155,7 @@ class Regsosek2022 extends BaseController
             } else {
                 $this->arusdokumen->set([
                     'ket' => strtoupper($this->request->getPost('ket')),
+                    'diterima_ipds' => $this->request->getPost('diterima_ipds'),
                     'diterima_mitra' => $this->request->getPost('diterima_mitra'),
                     'mitra' => strtoupper($this->request->getPost('mitra')),
                     'kembali_tu' => $this->request->getPost('kembali_tu'),
