@@ -140,6 +140,65 @@ class Regsosek2022 extends BaseController
         }
     }
 
+    public function updatedokumenerror()
+    {
+        if (isset($_FILES["file"]["name"])) {
+            $file_excel = $this->request->getFile('file');
+            $render = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+            $spreadsheet = $render->load($file_excel);
+
+            $data = $spreadsheet->getActiveSheet()->toArray();
+
+            $this->db->table('regsosek2022_dokumenerror')->emptyTable();
+
+            foreach ($data as $i => $row) {
+                if ($i == 0) {
+                    continue;
+                }
+                $kodewilayah = str_split($data[$i][0], 16)[0];
+                $nama_sls = $data[$i][1];
+                $rt = $data[$i][2];
+                $art = $data[$i][3];
+                $validasi = $data[$i][6];
+                $perlakuan = $data[$i][7];
+
+
+                $this->dokumenerror->insert([
+                    'k_wil' => $kodewilayah,
+                    'nama_sls' => $nama_sls,
+                    'rt' => $rt,
+                    'art' => $art,
+                    'validasi' => $validasi,
+                    'perlakuan' => $perlakuan
+                ]);
+
+                // if ($this->entrian->where('email', $data[$i][0])->get()->getRowArray() == null) {
+                //     continue;
+                // } else {
+                //     $current = $this->entrian->where('email', $data[$i][0])->get()->getRowArray();
+                //     $dokclean   = $data[$i][3] - $current['lastentri'];
+                //     $dokwarning = $data[$i][4];
+                //     $dokerror   = $data[$i][5];
+                //     $doktotal   = $dokclean + $dokwarning + $dokerror;
+
+                //     $this->entrian->set([
+                //         'dok_clean' => $dokclean,
+                //         'dok_warning' => $dokwarning,
+                //         'dok_error' => $dokerror,
+                //         'total' => $doktotal
+                //     ])->where('email', $data[$i][0])->update();
+            }
+
+            dd('berhasil');
+            return redirect()->to(base_url('/regsosek2022'));
+        } else {
+            return view('templates/header')
+                . view('templates/sidebar', $this->user)
+                . view('templates/topbar')
+                . view('regsosek2022/updateentrian');
+        }
+    }
+
     public function absensi()
     {
         $data['kehadiran'] = $this->absensi->select('ab.*, userinfo.nama')
@@ -207,36 +266,12 @@ class Regsosek2022 extends BaseController
 
     public function dokumenerror()
     {
-        $spreadsheet = new Spreadsheet();
-        // $sheet = $spreadsheet->getActiveSheet();
-        // $sheet->setCellValue('A1', 'Hello World !');
-
-
-        // $writer = new Xlsx($spreadsheet);
-        // $writer->save('hello world.xlsx');
-
-        // $spreadsheet = IOFactory::load('write.xls');
-
-        // $worksheet = $spreadsheet->getActiveSheet();
-
-        // for ($i = 1; $i < 3; $i++) {
-        //     echo $worksheet->getCell('A' . $i)->getValue();
-        // }
-        // dd('ok');
-
-        // $worksheet->getCell('A2')->setValue();
-
-        // $writer = IOFactory::createWriter($spreadsheet, 'Xls');
-        // $writer->save('write.xls');
-
-        // dd('oke');
-
         $de = $this->dokumenerror->select('k_wil')->distinct()->get()->getResultArray();
 
         $data['dokumenerror'] = [];
         foreach ($de as $d) {
             $mitra = $this->arusdokumen->where('k_wil', $d['k_wil'])->get()->getRowArray();
-            // dd($mitra);
+
             array_push($data['dokumenerror'], [
                 'k_wil' => $d['k_wil'],
                 'mitra' => $mitra == null ? '-' : $mitra['mitra'],
@@ -244,15 +279,6 @@ class Regsosek2022 extends BaseController
                 'diperbaiki' => $this->dokumenerror->where('k_wil', $d['k_wil'])->where('perlakuan !=', null)->countAllResults()
             ]);
         }
-        // dd($data['dokumenerror']);
-
-        // $data['dokumenerror'] = $this->arusdokumen->join('regsosek2022_dokumenerror as e', 'ad.k_wil = e.k_wil')
-        //     ->get()->getResultArray();
-
-        // $dat = $this->arusdokumen->select('ad.k_wil')->distinct()
-        //     ->join('regsosek2022_dokumenerror as e', 'ad.k_wil = e.k_wil')
-        //     ->get()->getResultArray();
-        // dd($dat);
 
         return view('templates/header')
             . view('templates/sidebar', $this->user)
@@ -267,22 +293,15 @@ class Regsosek2022 extends BaseController
                 ->join('regsosek2022_dokumenerror as e', 'ad.k_wil = e.k_wil')
                 ->get()->getResultArray();
 
-            // dd($data);
-
-            // $dat = $this->arusdokumen->select('ad.k_wil')->distinct()
-            //     ->join('regsosek2022_dokumenerror as e', 'ad.k_wil = e.k_wil')
-            //     ->get()->getResultArray();
-            // dd($dat);
-
             return view('templates/header')
                 . view('templates/sidebar', $this->user)
                 . view('templates/topbar')
                 . view('regsosek2022/dokumenerrorlihat', $data);
         } else {
             if ($this->request->getPost() != null) {
+
                 $this->dokumenerror->set([
-                    'validasi' => strtoupper($this->request->getPost('validasi')),
-                    'perlakuan' => $this->request->getPost('perlakuan'),
+                    'catatan' => $this->request->getPost('catatan'),
                 ])->where('id', $id)->update();
 
                 return redirect()->to(base_url('/regsosek2022/dokumenerror/' . $kodewilayah));
@@ -295,14 +314,26 @@ class Regsosek2022 extends BaseController
 
                 $data['dokumenerror'] = $this->dokumenerror->where('id', $id)->get()->getRowArray();
 
-                // dd($data);
-
                 return view('templates/header')
                     . view('templates/sidebar', $this->user)
                     . view('templates/topbar')
                     . view('regsosek2022/dokumenerroredit', $data);
             }
         }
+    }
+
+    public function dokumenerrorcek($kodewilayah, $id, $cek)
+    {
+        if ($cek == 'sudah') {
+            $this->dokumenerror->set([
+                'cek' => 'sudah'
+            ])->where('id', $id)->update();
+        } else if ($cek == 'belum') {
+            $this->dokumenerror->set([
+                'cek' => 'belum'
+            ])->where('id', $id)->update();
+        }
+        return redirect()->to(base_url('/regsosek2022/dokumenerror/' . $kodewilayah));
     }
 
     public function petugas()

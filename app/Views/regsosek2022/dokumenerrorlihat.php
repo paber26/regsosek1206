@@ -7,7 +7,7 @@
             <div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Absensi Regsosek 2022</h2>
+                        <h2>Dokumen Error <?= $dokumenerror[0]['mitra']; ?></h2>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
@@ -17,25 +17,35 @@
                                     <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%">
                                         <thead>
                                             <tr>
+                                                <th></th>
                                                 <th>Kode Wilayah</th>
-                                                <th>Mitra</th>
+                                                <th>Nama SLS</th>
                                                 <th>ID RT</th>
                                                 <th>ID ART</th>
                                                 <th>Jenis Validasi</th>
                                                 <th>Perlakuan</th>
+                                                <th>Catatan</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
 
                                         <tbody>
                                             <?php foreach ($dokumenerror as $dok) : ?>
-                                                <tr>
+                                                <tr class="<?php echo ($dok['cek'] == 'sudah') ? 'bg-success text-white' : '' ?>">
+                                                    <?php if ($dok['cek'] == 'belum') : ?>
+                                                        <td class="text-center"><a href="<?php echo '/regsosek2022/dokumenerrorcek/' . $dok['k_wil'] . '/' . $dok['id'] . '/sudah' ?>" class="btn btn-success btn-sm">Checked</a></td>
+                                                    <?php endif ?>
+                                                    <?php if ($dok['cek'] == 'sudah') : ?>
+                                                        <td class="text-center"><a href="<?php echo '/regsosek2022/dokumenerrorcek/' . $dok['k_wil'] . '/' . $dok['id'] . '/belum' ?>" class="btn btn-danger btn-sm">Unchecked</a></td>
+                                                    <?php endif ?>
+
                                                     <td><?= $dok['k_wil']; ?></td>
-                                                    <td><?= $dok['mitra']; ?></td>
-                                                    <td><?= $dok['rt']; ?></td>
-                                                    <td><?= $dok['art']; ?></td>
+                                                    <td><?= $dok['nama_sls']; ?></td>
+                                                    <td class="text-center"><?= $dok['rt']; ?></td>
+                                                    <td class="text-center"><?= $dok['art']; ?></td>
                                                     <td><?= $dok['validasi']; ?></td>
                                                     <td><?= $dok['perlakuan']; ?></td>
+                                                    <td><?= $dok['catatan']; ?></td>
                                                     <td><a href="<?php echo '/regsosek2022/dokumenerror/' . $dok['k_wil'] . '/' . $dok['id'] ?>" class="btn btn-secondary btn-sm">Edit</a></td>
                                                 </tr>
                                             <?php endforeach ?>
@@ -48,38 +58,6 @@
                 </div>
             </div>
 
-        </div>
-
-        <div class="row">
-            <div class="col-md-12 col-sm-12  ">
-                <div class="x_panel">
-                    <div class="x_title">
-                        <h2>Dropzone multiple file uploader</h2>
-                        <ul class="nav navbar-right panel_toolbox">
-                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Settings 1</a>
-                                    <a class="dropdown-item" href="#">Settings 2</a>
-                                </div>
-                            </li>
-                            <li><a class="close-link"><i class="fa fa-close"></i></a>
-                            </li>
-                        </ul>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="x_content">
-                        <p>Drag multiple files to the box below for multi upload or click to select files. This is for demonstration purposes only, the files are not uploaded to any server.</p>
-                        <form action="form_upload.html" class="dropzone"></form>
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
