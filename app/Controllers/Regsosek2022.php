@@ -161,6 +161,8 @@ class Regsosek2022 extends BaseController
                 $art = $data[$i][3];
                 $validasi = $data[$i][6];
                 $perlakuan = $data[$i][7];
+                $cek = $data[$i][8];
+                $catatan = $data[$i][9];
 
 
                 $this->dokumenerror->insert([
@@ -169,27 +171,12 @@ class Regsosek2022 extends BaseController
                     'rt' => $rt,
                     'art' => $art,
                     'validasi' => $validasi,
-                    'perlakuan' => $perlakuan
+                    'perlakuan' => $perlakuan,
+                    'cek' => $cek,
+                    'catatan' => $catatan
                 ]);
-
-                // if ($this->entrian->where('email', $data[$i][0])->get()->getRowArray() == null) {
-                //     continue;
-                // } else {
-                //     $current = $this->entrian->where('email', $data[$i][0])->get()->getRowArray();
-                //     $dokclean   = $data[$i][3] - $current['lastentri'];
-                //     $dokwarning = $data[$i][4];
-                //     $dokerror   = $data[$i][5];
-                //     $doktotal   = $dokclean + $dokwarning + $dokerror;
-
-                //     $this->entrian->set([
-                //         'dok_clean' => $dokclean,
-                //         'dok_warning' => $dokwarning,
-                //         'dok_error' => $dokerror,
-                //         'total' => $doktotal
-                //     ])->where('email', $data[$i][0])->update();
             }
 
-            dd('berhasil');
             return redirect()->to(base_url('/regsosek2022'));
         } else {
             return view('templates/header')
@@ -276,7 +263,7 @@ class Regsosek2022 extends BaseController
                 'k_wil' => $d['k_wil'],
                 'mitra' => $mitra == null ? '-' : $mitra['mitra'],
                 'total_error' => $this->dokumenerror->where('k_wil', $d['k_wil'])->countAllResults(),
-                'diperbaiki' => $this->dokumenerror->where('k_wil', $d['k_wil'])->where('perlakuan !=', null)->countAllResults()
+                'diperbaiki' => $this->dokumenerror->where('k_wil', $d['k_wil'])->where('cek', 'sudah')->countAllResults()
             ]);
         }
 
