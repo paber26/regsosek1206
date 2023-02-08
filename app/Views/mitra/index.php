@@ -21,10 +21,11 @@
                                             <tr>
                                                 <th>Nama</th>
                                                 <th>Email</th>
-                                                <th>Bergabung</th>
                                                 <th>No WA</th>
                                                 <th>Rekening</th>
                                                 <th>No Rekening</th>
+                                                <th>KTP</th>
+                                                <th>Rekening</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -35,10 +36,11 @@
                                                 <tr>
                                                     <td><?= $mitra['nama']; ?></td>
                                                     <td><?= $mitra['email']; ?></td>
-                                                    <td><?= $mitra['created_at']; ?></td>
                                                     <td><?= $mitra['wa']; ?></td>
-                                                    <td>BRI</td>
-                                                    <td>5252502349234</td>
+                                                    <td><?= $mitra['rekening']; ?></td>
+                                                    <td><?= $mitra['nomor_rekening']; ?></td>
+                                                    <td><img src="<?= base_url('img/ktp/' . $gambar_ktp); ?>" class="img-thumbnail" width="60%"></td>
+                                                    <td><img src="<?= base_url('img/rekening/' . $gambar_rekening); ?>" class="img-thumbnail" width="60%"></td>
                                                     <td><a href="<?php echo '/mitra/edit/' . $mitra['id'] ?>" class="btn btn-secondary btn-sm">Edit</a></td>
                                                 </tr>
                                             <?php endforeach ?>
