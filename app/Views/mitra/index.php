@@ -9,7 +9,7 @@
                     <div class="x_title">
 
 
-                        <h2>Absensi Regsosek 2022</h2>
+                        <h2>Profil Mitra</h2>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
@@ -39,8 +39,8 @@
                                                     <td><?= $mitra['wa']; ?></td>
                                                     <td><?= $mitra['rekening']; ?></td>
                                                     <td><?= $mitra['nomor_rekening']; ?></td>
-                                                    <td><img src="<?= base_url('img/ktp/' . $gambar_ktp); ?>" class="img-thumbnail" width="60%"></td>
-                                                    <td><img src="<?= base_url('img/rekening/' . $gambar_rekening); ?>" class="img-thumbnail" width="60%"></td>
+                                                    <td><img src="<?= 'https://regsosek2022.bernaldonapitupulu.com/img/ktp/' . $mitra['gambar_ktp']; ?>" width="100%"></td>
+                                                    <td><img src="<?= 'https://regsosek2022.bernaldonapitupulu.com/img/rekening/' . $mitra['gambar_rekening']; ?>" width="100%"></td>
                                                     <td><a href="<?php echo '/mitra/edit/' . $mitra['id'] ?>" class="btn btn-secondary btn-sm">Edit</a></td>
                                                 </tr>
                                             <?php endforeach ?>
