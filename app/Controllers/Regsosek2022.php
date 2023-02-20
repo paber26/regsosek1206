@@ -20,6 +20,7 @@ class Regsosek2022 extends BaseController
     protected $userinfo;
     protected $sls;
     protected $arusdokumen;
+    protected $kondisisls;
     protected $dokumenerror;
     protected $absensi;
     protected $entrian;
@@ -39,6 +40,7 @@ class Regsosek2022 extends BaseController
         $this->dokumenerror = $this->db->table('regsosek2022_dokumenerror as de');
         $this->absensi = $this->db->table('regsosek2022_absensi as ab');
         $this->entrian = $this->db->table('regsosek2022_entrian as e');
+        $this->kondisisls = $this->db->table('regsosek2022_kondisisls as e');
     }
 
     public function index()
@@ -177,12 +179,72 @@ class Regsosek2022 extends BaseController
                 ]);
             }
 
-            return redirect()->to(base_url('/regsosek2022'));
+            return redirect()->to(base_url('/regsosek2022/dokumenerror'));
         } else {
             return view('templates/header')
                 . view('templates/sidebar', $this->user)
                 . view('templates/topbar')
                 . view('regsosek2022/updateentrian');
+        }
+    }
+
+    public function updatekondisisls()
+    {
+        if (isset($_FILES["file"]["name"])) {
+            $file_excel = $this->request->getFile('file');
+            $render = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+            $spreadsheet = $render->load($file_excel);
+
+            $data = $spreadsheet->getActiveSheet()->toArray();
+
+            $this->kondisisls->delete('id!=0');
+
+            foreach ($data as $i => $row) {
+                if ($i == 0) {
+                    continue;
+                }
+                if ($i == 908) {
+                    exit;
+                }
+
+                $kode = strval($data[$i][0]);
+
+                $sls = strval($data[$i][5]);
+                if (strlen($sls) == 1) {
+                    $sls = '000' . $sls;
+                } else if (strlen($sls) == 2) {
+                    $sls = '00' . $sls;
+                }
+
+                $subsls = '0' . strval($data[$i][6]);
+
+                $kodewilayah = $kode . $sls . $subsls;
+                $nama_sls = $data[$i][7];
+                $blank = $data[$i][8];
+                $clean = $data[$i][10];
+                $warning = $data[$i][12];
+                $error = $data[$i][14];
+                $total = $data[$i][16];
+                $vk = $data[$i][17];
+
+                $this->kondisisls->insert([
+                    'k_wil' => $kodewilayah,
+                    'nama_sls' => $nama_sls,
+                    'blank' => $blank,
+                    'clean' => $clean,
+                    'warning' => $warning,
+                    'error' => $error,
+                    'total' => $total,
+                    'vk' => $vk
+                ]);
+            }
+
+            return redirect()->to(base_url('/regsosek2022/kondisisls'));
+        } else {
+            return view('templates/header')
+                . view('templates/sidebar', $this->user)
+                . view('templates/topbar')
+                . view('regsosek2022/updatekondisisls');
         }
     }
 
@@ -249,6 +311,33 @@ class Regsosek2022 extends BaseController
 
             return redirect()->to(base_url('/regsosek2022/arusdokumen'));
         }
+    }
+
+    public function kondisisls()
+    {
+        $ksls = $this->kondisisls->get()->getResultArray();
+
+        $data['kondisisls'] = [];
+        foreach ($ksls as $d) {
+            $mitra = $this->arusdokumen->where('k_wil', $d['k_wil'])->get()->getRowArray();
+
+            array_push($data['kondisisls'], [
+                'k_wil' => $d['k_wil'],
+                'mitra' => $mitra == null ? '-' : $mitra['mitra'],
+                'nama_sls' => $d['nama_sls'],
+                'blank' => $d['blank'],
+                'clean' => $d['clean'],
+                'warning' => $d['warning'],
+                'error' => $d['error'],
+                'total' => $d['total'],
+                'vk' => $d['vk'],
+            ]);
+        }
+
+        return view('templates/header')
+            . view('templates/sidebar', $this->user)
+            . view('templates/topbar')
+            . view('regsosek2022/kondisisls', $data);
     }
 
     public function dokumenerror()

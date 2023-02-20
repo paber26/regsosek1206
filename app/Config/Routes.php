@@ -51,6 +51,12 @@ $routes->get('/regsosek2022/arusdokumen', 'Regsosek2022::arusdokumen');
 $routes->get('/regsosek2022/arusdokumen/(:num)', 'Regsosek2022::arusdokumenedit/$1');
 $routes->post('/regsosek2022/arusdokumen/(:num)', 'Regsosek2022::arusdokumenedit/$1');
 
+
+$routes->get('/regsosek2022/kondisisls', 'Regsosek2022::kondisisls');
+$routes->get('/regsosek2022/updatekondisisls', 'Regsosek2022::updatekondisisls');
+$routes->post('/regsosek2022/updatekondisisls', 'Regsosek2022::updatekondisisls');
+
+
 $routes->get('/regsosek2022/dokumenerror', 'Regsosek2022::dokumenerror');
 $routes->get('/regsosek2022/dokumenerror/(:num)', 'Regsosek2022::dokumenerrorlihat/$1');
 $routes->get('/regsosek2022/dokumenerror/(:num)/(:num)', 'Regsosek2022::dokumenerrorlihat/$1/$2');

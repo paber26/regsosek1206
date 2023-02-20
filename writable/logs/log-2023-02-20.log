@@ -1,0 +1,310 @@
+CRITICAL - 2023-02-20 16:20:48 --> Call to undefined function App\Controllers\str()
+in APPPATH\Controllers\Regsosek2022.php on line 202.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Regsosek2022->updatekondisisls()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-02-20 16:21:48 --> Undefined variable $kode
+in APPPATH\Controllers\Regsosek2022.php on line 204.
+ 1 APPPATH\Controllers\Regsosek2022.php(204): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $kode', 'APPPATH\\Controllers\\Regsosek2022.php', 204)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Regsosek2022->updatekondisisls()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-02-20 16:28:44 --> Undefined variable $st
+in APPPATH\Controllers\Regsosek2022.php on line 206.
+ 1 APPPATH\Controllers\Regsosek2022.php(206): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $st', 'APPPATH\\Controllers\\Regsosek2022.php', 206)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Regsosek2022->updatekondisisls()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+ERROR - 2023-02-20 16:35:23 --> mysqli_sql_exception: Unknown column 'blank' in 'field list' in C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `re...', 0)
+#1 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `re...')
+#2 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `re...')
+#3 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2295): CodeIgniter\Database\BaseConnection->query('INSERT INTO `re...', Array, false)
+#4 C:\xampp\htdocs\regsosek1206\app\Controllers\Regsosek2022.php(231): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(934): App\Controllers\Regsosek2022->updatekondisisls()
+#6 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+#7 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\regsosek1206\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2023-02-20 16:35:23 --> Unknown column 'blank' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2295): CodeIgniter\Database\BaseConnection->query('INSERT INTO `regsosek2022_dokumenerror` (`k_wil`, `nama_sls`, `blank`, `clean`, `warning`, `error`, `total`, `vk`) VALUES (:k_wil:, :nama_sls:, :blank:, :clean:, :warning:, :error:, :total:, :vk:)', [...], false)
+ 2 APPPATH\Controllers\Regsosek2022.php(231): CodeIgniter\Database\BaseBuilder->insert([...])
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Regsosek2022->updatekondisisls()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+ERROR - 2023-02-20 16:36:07 --> mysqli_sql_exception: Unknown column 'blank' in 'field list' in C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `re...', 0)
+#1 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `re...')
+#2 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `re...')
+#3 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2295): CodeIgniter\Database\BaseConnection->query('INSERT INTO `re...', Array, false)
+#4 C:\xampp\htdocs\regsosek1206\app\Controllers\Regsosek2022.php(232): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(934): App\Controllers\Regsosek2022->updatekondisisls()
+#6 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+#7 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\regsosek1206\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2023-02-20 16:36:07 --> Unknown column 'blank' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2295): CodeIgniter\Database\BaseConnection->query('INSERT INTO `regsosek2022_dokumenerror` (`k_wil`, `nama_sls`, `blank`, `clean`, `warning`, `error`, `total`, `vk`) VALUES (:k_wil:, :nama_sls:, :blank:, :clean:, :warning:, :error:, :total:, :vk:)', [...], false)
+ 2 APPPATH\Controllers\Regsosek2022.php(232): CodeIgniter\Database\BaseBuilder->insert([...])
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Regsosek2022->updatekondisisls()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+ERROR - 2023-02-20 16:37:50 --> mysqli_sql_exception: Table 'bps1206.regsosek2022_konsisisls' doesn't exist in C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `re...', 0)
+#1 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `re...')
+#2 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `re...')
+#3 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2295): CodeIgniter\Database\BaseConnection->query('INSERT INTO `re...', Array, false)
+#4 C:\xampp\htdocs\regsosek1206\app\Controllers\Regsosek2022.php(234): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(934): App\Controllers\Regsosek2022->updatekondisisls()
+#6 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+#7 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\regsosek1206\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2023-02-20 16:37:50 --> Table 'bps1206.regsosek2022_konsisisls' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2295): CodeIgniter\Database\BaseConnection->query('INSERT INTO `regsosek2022_konsisisls` (`k_wil`, `nama_sls`, `blank`, `clean`, `warning`, `error`, `total`, `vk`) VALUES (:k_wil:, :nama_sls:, :blank:, :clean:, :warning:, :error:, :total:, :vk:)', [...], false)
+ 2 APPPATH\Controllers\Regsosek2022.php(234): CodeIgniter\Database\BaseBuilder->insert([...])
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Regsosek2022->updatekondisisls()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+ERROR - 2023-02-20 16:38:04 --> mysqli_sql_exception: Table 'bps1206.regsosek2022_kondisisls' doesn't exist in C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `re...', 0)
+#1 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `re...')
+#2 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `re...')
+#3 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2295): CodeIgniter\Database\BaseConnection->query('INSERT INTO `re...', Array, false)
+#4 C:\xampp\htdocs\regsosek1206\app\Controllers\Regsosek2022.php(234): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(934): App\Controllers\Regsosek2022->updatekondisisls()
+#6 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+#7 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\regsosek1206\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2023-02-20 16:38:04 --> Table 'bps1206.regsosek2022_kondisisls' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2295): CodeIgniter\Database\BaseConnection->query('INSERT INTO `regsosek2022_kondisisls` (`k_wil`, `nama_sls`, `blank`, `clean`, `warning`, `error`, `total`, `vk`) VALUES (:k_wil:, :nama_sls:, :blank:, :clean:, :warning:, :error:, :total:, :vk:)', [...], false)
+ 2 APPPATH\Controllers\Regsosek2022.php(234): CodeIgniter\Database\BaseBuilder->insert([...])
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Regsosek2022->updatekondisisls()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-02-20 16:41:27 --> Deletes are not allowed unless they contain a "where" or "like" clause.
+in SYSTEMPATH\Database\BaseBuilder.php on line 2753.
+ 1 APPPATH\Controllers\Regsosek2022.php(200): CodeIgniter\Database\BaseBuilder->delete()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Regsosek2022->updatekondisisls()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+ERROR - 2023-02-20 16:41:57 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as `e`' at line 1 in C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('TRUNCATE `regso...', 0)
+#1 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('TRUNCATE `regso...')
+#2 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('TRUNCATE `regso...')
+#3 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2707): CodeIgniter\Database\BaseConnection->query('TRUNCATE `regso...', NULL, false)
+#4 C:\xampp\htdocs\regsosek1206\app\Controllers\Regsosek2022.php(200): CodeIgniter\Database\BaseBuilder->truncate()
+#5 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(934): App\Controllers\Regsosek2022->updatekondisisls()
+#6 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+#7 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\regsosek1206\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2023-02-20 16:41:57 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as `e`' at line 1
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2707): CodeIgniter\Database\BaseConnection->query('TRUNCATE `regsosek2022_kondisisls` as `e`', null, false)
+ 2 APPPATH\Controllers\Regsosek2022.php(200): CodeIgniter\Database\BaseBuilder->truncate()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Regsosek2022->updatekondisisls()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-02-20 16:43:34 --> Deletes are not allowed unless they contain a "where" or "like" clause.
+in SYSTEMPATH\Database\BaseBuilder.php on line 2753.
+ 1 APPPATH\Controllers\Regsosek2022.php(200): CodeIgniter\Database\BaseBuilder->delete()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Regsosek2022->updatekondisisls()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+ERROR - 2023-02-20 16:45:16 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as `e`' at line 1 in C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('DELETE FROM `re...', 0)
+#1 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `re...')
+#2 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `re...')
+#3 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2685): CodeIgniter\Database\BaseConnection->query('DELETE FROM `re...', NULL, false)
+#4 C:\xampp\htdocs\regsosek1206\app\Controllers\Regsosek2022.php(200): CodeIgniter\Database\BaseBuilder->emptyTable()
+#5 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(934): App\Controllers\Regsosek2022->updatekondisisls()
+#6 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+#7 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\regsosek1206\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2023-02-20 16:45:16 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as `e`' at line 1
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2685): CodeIgniter\Database\BaseConnection->query('DELETE FROM `regsosek2022_kondisisls` as `e`', null, false)
+ 2 APPPATH\Controllers\Regsosek2022.php(200): CodeIgniter\Database\BaseBuilder->emptyTable()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Regsosek2022->updatekondisisls()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-02-20 16:47:17 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::delete()
+in APPPATH\Controllers\Regsosek2022.php on line 202.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Regsosek2022->updatekondisisls()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-02-20 16:49:28 --> Deletes are not allowed unless they contain a "where" or "like" clause.
+in SYSTEMPATH\Database\BaseBuilder.php on line 2753.
+ 1 APPPATH\Controllers\Regsosek2022.php(200): CodeIgniter\Database\BaseBuilder->delete()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Regsosek2022->updatekondisisls()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-02-20 16:50:58 --> Deletes are not allowed unless they contain a "where" or "like" clause.
+in SYSTEMPATH\Database\BaseBuilder.php on line 2753.
+ 1 APPPATH\Controllers\Regsosek2022.php(202): CodeIgniter\Database\BaseBuilder->delete()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Regsosek2022->updatekondisisls()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+ERROR - 2023-02-20 16:51:31 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '!=' at line 2 in C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('DELETE FROM `re...', 0)
+#1 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `re...')
+#2 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `re...')
+#3 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2777): CodeIgniter\Database\BaseConnection->query('DELETE FROM `re...', Array, false)
+#4 C:\xampp\htdocs\regsosek1206\app\Controllers\Regsosek2022.php(202): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(934): App\Controllers\Regsosek2022->updatekondisisls()
+#6 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+#7 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\regsosek1206\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2023-02-20 16:51:31 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '!=' at line 2
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2777): CodeIgniter\Database\BaseConnection->query('DELETE FROM `regsosek2022_kondisisls`
+WHERE id = :id:', [...], false)
+ 2 APPPATH\Controllers\Regsosek2022.php(202): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Regsosek2022->updatekondisisls()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+ERROR - 2023-02-20 16:51:40 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '<>' at line 2 in C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('DELETE FROM `re...', 0)
+#1 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `re...')
+#2 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `re...')
+#3 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2777): CodeIgniter\Database\BaseConnection->query('DELETE FROM `re...', Array, false)
+#4 C:\xampp\htdocs\regsosek1206\app\Controllers\Regsosek2022.php(202): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(934): App\Controllers\Regsosek2022->updatekondisisls()
+#6 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+#7 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\regsosek1206\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2023-02-20 16:51:40 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '<>' at line 2
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2777): CodeIgniter\Database\BaseConnection->query('DELETE FROM `regsosek2022_kondisisls`
+WHERE id = :id:', [...], false)
+ 2 APPPATH\Controllers\Regsosek2022.php(202): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Regsosek2022->updatekondisisls()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+ERROR - 2023-02-20 16:51:49 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '==' at line 2 in C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('DELETE FROM `re...', 0)
+#1 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `re...')
+#2 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `re...')
+#3 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2777): CodeIgniter\Database\BaseConnection->query('DELETE FROM `re...', Array, false)
+#4 C:\xampp\htdocs\regsosek1206\app\Controllers\Regsosek2022.php(202): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(934): App\Controllers\Regsosek2022->updatekondisisls()
+#6 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+#7 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\regsosek1206\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2023-02-20 16:51:49 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '==' at line 2
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2777): CodeIgniter\Database\BaseConnection->query('DELETE FROM `regsosek2022_kondisisls`
+WHERE id = :id:', [...], false)
+ 2 APPPATH\Controllers\Regsosek2022.php(202): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Regsosek2022->updatekondisisls()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+ERROR - 2023-02-20 16:51:51 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '==' at line 2 in C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('DELETE FROM `re...', 0)
+#1 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `re...')
+#2 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `re...')
+#3 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2777): CodeIgniter\Database\BaseConnection->query('DELETE FROM `re...', Array, false)
+#4 C:\xampp\htdocs\regsosek1206\app\Controllers\Regsosek2022.php(202): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(934): App\Controllers\Regsosek2022->updatekondisisls()
+#6 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+#7 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\regsosek1206\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\regsosek1206\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2023-02-20 16:51:51 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '==' at line 2
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2777): CodeIgniter\Database\BaseConnection->query('DELETE FROM `regsosek2022_kondisisls`
+WHERE id = :id:', [...], false)
+ 2 APPPATH\Controllers\Regsosek2022.php(202): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Regsosek2022->updatekondisisls()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-02-20 16:59:58 --> Undefined array key "nama"
+in APPPATH\Views\regsosek2022\kondisisls.php on line 35.
+ 1 APPPATH\Views\regsosek2022\kondisisls.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama"', 'APPPATH\\Views\\regsosek2022\\kondisisls.php', 35)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\regsosek2022\\kondisisls.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('regsosek2022/kondisisls', [], true)
+ 5 APPPATH\Controllers\Regsosek2022.php(340): view('regsosek2022/kondisisls', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Regsosek2022->kondisisls()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-02-20 17:00:10 --> Undefined array key "tanggal"
+in APPPATH\Views\regsosek2022\kondisisls.php on line 36.
+ 1 APPPATH\Views\regsosek2022\kondisisls.php(36): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "tanggal"', 'APPPATH\\Views\\regsosek2022\\kondisisls.php', 36)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\regsosek2022\\kondisisls.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('regsosek2022/kondisisls', [], true)
+ 5 APPPATH\Controllers\Regsosek2022.php(340): view('regsosek2022/kondisisls', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Regsosek2022->kondisisls()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Regsosek2022))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
