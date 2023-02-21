@@ -145,13 +145,14 @@ class Regsosek2022 extends BaseController
     public function updatedokumenerror()
     {
         if (isset($_FILES["file"]["name"])) {
+
             $file_excel = $this->request->getFile('file');
             $render = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
             $spreadsheet = $render->load($file_excel);
 
             $data = $spreadsheet->getActiveSheet()->toArray();
 
-            $this->db->table('regsosek2022_dokumenerror')->emptyTable();
+            // $this->db->table('regsosek2022_dokumenerror')->emptyTable();
 
             foreach ($data as $i => $row) {
                 if ($i == 0) {
@@ -163,8 +164,17 @@ class Regsosek2022 extends BaseController
                 $art = $data[$i][3];
                 $validasi = $data[$i][6];
                 $perlakuan = $data[$i][7];
-                $cek = $data[$i][8];
-                $catatan = $data[$i][9];
+
+                if (isset($data[$i][8])) {
+                    $cek = $data[$i][8];
+                } else {
+                    $cek = 'belum';
+                };
+                if (isset($data[$i][9])) {
+                    $catatan = $data[$i][9];
+                } else {
+                    $catatan = '';
+                };
 
 
                 $this->dokumenerror->insert([
@@ -203,8 +213,8 @@ class Regsosek2022 extends BaseController
                 if ($i == 0) {
                     continue;
                 }
-                if ($i == 908) {
-                    exit;
+                if ($i >= 908) {
+                    continue;
                 }
 
                 $kode = strval($data[$i][0]);
